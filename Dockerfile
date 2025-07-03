@@ -13,6 +13,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY backend/ ./backend/
 
-WORKDIR /opensource_app
+WORKDIR /opensource_app/backend
 
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
