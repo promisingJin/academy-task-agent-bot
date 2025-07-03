@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -122,3 +123,19 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+#Token setting - using JWT
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15), #임시 access 유효기간
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),    #임시 refresh 유효기간
+    'ROTATE_REFRESH_TOKENS': False,                 #refrash 시 새로운 refresh 토큰 발급 : False
+    'BLACKLIST_AFTER_ROTATION': True,               #기존 refrash 토큰 사용 제한 : True
+    'ALGORITHM': 'HS256',                           #토큰 암호화 알고리즘 : 
+    'SIGNING_KEY': SECRET_KEY,                      #토큰 서명 비밀키 (secret_key 재사용)
+}
