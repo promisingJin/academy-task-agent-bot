@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "apps.students",
     "apps.teachers",
+    "apps.managers",
     "rest_framework",
     "rest_framework_simplejwt",
 ]
