@@ -1,8 +1,12 @@
 from rest_framework import serializers
-from .models import Student
+from .models import Student, Teacher
 
-#학생이 회원가입 할 필요가 있나요? - 추후 삭제
 class StudentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Student
+        fields = '__all__'
+
+class TeacherSerializer(serializers.ModelSerializer) :
+    class Meta:
+        model = Teacher
         fields = '__all__'
