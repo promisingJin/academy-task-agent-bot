@@ -7,3 +7,4 @@ class Student(models.Model):
     birth_date = models.IntegerField()
     gender = models.CharField(max_length=10, choices=(('male', 'male'), ('female', 'female')))
 
+
