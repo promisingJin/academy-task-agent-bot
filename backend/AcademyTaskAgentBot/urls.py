@@ -23,4 +23,6 @@ urlpatterns = [
     path("students/", include('apps.students.urls')),
     path("managers/", include('apps.managers.urls')),
     path("admin/", admin.site.urls),
+    path("api/", include('apps.teachers.urls')),
+    path("api/", include('apps.students.urls')),
 ]

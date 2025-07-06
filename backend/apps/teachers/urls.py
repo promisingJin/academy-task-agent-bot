@@ -8,4 +8,5 @@ from rest_framework_simplejwt.views import (
 
 urlpatterns = [
     path('', views.index, name = 'index'),
+    path('admin/teachers/', views.AdminTeacherListView.as_view(), name='admin-teachers'),
 ]
